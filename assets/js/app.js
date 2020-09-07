@@ -22,8 +22,7 @@ var svg = d3.select("#scatter")
     .attr("width", svgWidth);
 
 // Defining Chart Group
-var chartGroup = svg.append("g")
-    .attr("transform", `translate(${margin.left}, ${margin.top})`);
+var chartGroup = svg.append("g").attr("transform", `translate(${margin.left}, ${margin.top})`);
 
 // Importing Data
 d3.csv("assets/data/data.csv").then(function(stateData){
@@ -67,18 +66,16 @@ d3.csv("assets/data/data.csv").then(function(stateData){
         .attr("class", "stateCircle");
 
     //Adding the SVG Text Element to the Chartgroup
-    var text = chartGroup.selectAll("text")
-                            .data(stateData)
-                            .enter()
-                            .append("text");
-
-    //Adding SVG Text Element Attributes
-    var textLabels = text
-        .attr("x", (d => xLinearScale(d.poverty)-7))
-        .attr("y", (d => yLinearScale(d.healthcare)+3))
-        .text(d => d.abbr)
-        .attr("font-size", "9px")
-        .attr("fill", "white");
+    var circleText = chartGroup.selectAll()
+                    .data(stateData)
+                    .enter()
+                    .append("text")
+                    .text(d => d.abbr)
+                    .attr("x", (d => xLinearScale(d.poverty)))
+                    .attr("y", (d => yLinearScale(d.healthcare)+3))
+                    .attr("font-size", "9px")
+                    .attr("fill", "white")
+                    .attr("text-anchor", "middle");
 
     // Creating Tool-Tip
     var toolTip = d3.tip()

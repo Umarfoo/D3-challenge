@@ -1,6 +1,6 @@
 # JavaScript D3 - US States Risk Factors Interactive Scatter Plot
 
-The final output can be reached by clicking on this [website link](https://umarfoo.github.io/D3-challenge/).
+The final output can be reached by clicking on this [website link](https://umarfoo.github.io/US_States_Risk_Factors_Scatter_Plot_JavaScript/).
 
 ## Project Background
 
